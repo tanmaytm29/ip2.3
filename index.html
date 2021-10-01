@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    *{
+        background-color: rgb(213, 255, 255);
+    }
+    .descendent div p {
+    background-color: yellow;
+    }
+    .child div > p {
+    background-color: yellow;
+    }
+    .adjacent div + p {
+    background-color: yellow;
+    }
+    .general div ~ p {
+    background-color: yellow;
+    }
+    a:link {
+    color: red;
+    }
+
+    /* visited link */
+    a:visited {
+    color: green;
+    }
+
+    /* mouse over link */
+    a:hover {
+    color: hotpink;
+    }
+
+    /* selected link */
+    a:active {
+    color: blue;
+    }
+    .pseudoelements p::first-line {
+    color: #ff0000;
+    font-variant: small-caps;
+    }
+    .attrselector a[target] {
+    background-color: yellow;
+    }
+    #para1 {
+    text-align: center;
+    color: rgb(0, 183, 255);
+    }
+    .simple .classSelector {
+        font-size: 30;
+    color: rgb(255, 0, 234);
+    }
+</style>
+</head>
+<body>
+    <h1>Simple Selector</h1>
+    <span class="simple">
+        <h4>1. Id selector</h4>
+        <p id="para1">Hello World!</p>
+        <h4>2. Class selector</h4>
+        <p class="classSelector">This will be pink color and 30 font size!</p>
+        <h4>3. Universal selector</h4>
+        <p >This will affect the entire body</p>
+    </span>
+    <hr>
+    <h1>Combinator Selector</h1>
+    <span class="descendent">
+        <h4>1. Descendant Selector</h4>
+        <p>The descendant selector matches all elements that are descendants of a specified element.</p>
+
+        <div>
+        <p>Paragraph 1 in the div.</p>
+        <p>Paragraph 2 in the div.</p>
+        <section><p>Paragraph 3 in the div.</p></section>
+        </div>
+
+        <p>Paragraph 4. Not in a div.</p>
+        <p>Paragraph 5. Not in a div.</p>
+    </span>
+
+    <span class="child">
+        <h4>2. Child Selector</h4>
+        <p>The child selector (>) selects all elements that are the children of a specified element.</p>
+
+        <div>
+        <p>Paragraph 1 in the div.</p>
+        <p>Paragraph 2 in the div.</p>
+        <section>
+            <!-- not Child but Descendant -->
+            <p>Paragraph 3 in the div (inside a section element).</p>
+        </section>
+        <p>Paragraph 4 in the div.</p>
+        </div>
+
+        <p>Paragraph 5. Not in a div.</p>
+        <p>Paragraph 6. Not in a div.</p>
+    </span>
+
+    <span class="adjacent">
+        <h4>Adjacent Sibling Selector</h4>
+
+        <p>The + selector is used to select an element that is directly after another specific element.</p>
+        <p>The following example selects the first p element that are placed immediately after div elements:</p>
+
+        <div>
+        <p>Paragraph 1 in the div.</p>
+        <p>Paragraph 2 in the div.</p>
+        </div>
+
+        <p>Paragraph 3. After a div.</p>
+        <p>Paragraph 4. After a div.</p>
+
+        <div>
+        <p>Paragraph 5 in the div.</p>
+        <p>Paragraph 6 in the div.</p>
+        </div>
+
+        <p>Paragraph 7. After a div.</p>
+        <p>Paragraph 8. After a div.</p>
+    </span>
+    <span class="general">
+        <h4>General Sibling Selector</h4>
+
+        <p>The general sibling selector (~) selects all elements that are next siblings of a specified element.</p>
+
+        <p>Paragraph 1.</p>
+
+        <div>
+        <p>Paragraph 2.</p>
+        </div>
+
+        <p>Paragraph 3.</p>
+        <code>Some code.</code>
+        <p>Paragraph 4.</p>
+    </span>
+    <hr>
+    <h1>Pseudo-class selectors </h1>
+    <p><b><a href="#" target="_blank">This is a link</a></b></p>
+    <hr>
+    <h1>Pseudo-elements selectors</h1>
+    <span class="pseudoelements">
+        <p>You can use the ::first-line pseudo-element to add a special effect to the first line of a text. Some more text . And even more, and more, and more, and more, and more, and more, and more, and more, and more, and more, and more, and more.</p>
+    </span>
+    <hr>
+    <h1>Attribute Selectors</h1>
+    <span class="attrselector">
+        <a href="http://www.wikipedia.org">wikipedia.org</a>
+        <a href="http://www.disney.com" target="blank">disney.com</a>
+    </span>
+</body>
+</html>
